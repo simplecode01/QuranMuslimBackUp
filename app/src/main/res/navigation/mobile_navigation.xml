@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_quran">
+
+    <fragment
+        android:id="@+id/nav_quran"
+        android:name="com.simplecode01.quranmuslim.ui.quran.QuranViewPagerFragment"
+        android:label="@string/menu_quran"
+        tools:layout="@layout/fragment_quran">
+        <action
+            android:id="@+id/action_nav_quran_to_nav_read_quran"
+            app:destination="@id/nav_read_quran" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_rating"
+        android:name="com.simplecode01.quranmuslim.ui.about.RatingFragment"
+        android:label="@string/menu_rating"
+        tools:layout="@layout/fragment_rating" />
+
+    <fragment
+        android:id="@+id/nav_contact"
+        android:name="com.simplecode01.quranmuslim.ui.contact.ContactFragment"
+        android:label="@string/menu_contact"
+        tools:layout="@layout/fragment_contact" />
+
+
+    <fragment
+        android:id="@+id/nav_about_us"
+        android:name="com.simplecode01.quranmuslim.ui.about.AboutUsFragment"
+        android:label="@string/menu_about_us"
+        tools:layout="@layout/fragment_about_us" />
+    <fragment
+        android:id="@+id/nav_read_quran"
+        android:name="com.simplecode01.quranmuslim.ui.quran.ReadQuranFragment"
+        android:label="Read Quran"
+        tools:layout="@layout/fragment_read_quran">
+        <action
+            android:id="@+id/action_nav_read_quran_to_nav_quran_footnotes"
+            app:destination="@id/nav_quran_footnotes" />
+        <action
+            android:id="@+id/action_nav_read_quran_to_nav_search_quran"
+            app:destination="@id/nav_search_quran" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/nav_quran_footnotes"
+        android:name="com.simplecode01.quranmuslim.ui.quran.QuranFootnotesFragment"
+        android:label="QuranFootnotesFragment"
+        tools:layout="@layout/footnotes_bottomsheet"/>
+
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.simplecode01.quranmuslim.ui.settings.SettingFragment"
+        android:label="Setting"
+        tools:layout="@layout/fragment_settings"/>
+
+    <fragment
+        android:id="@+id/nav_search_quran"
+        android:name="com.simplecode01.quranmuslim.ui.search.SearchQuran"
+        android:label="Search Quran"
+        tools:layout="@layout/fragment_search_quran"/>
+
+    <fragment
+        android:id="@+id/nav_bookmark"
+        android:name="com.simplecode01.quranmuslim.ui.about.BookmarkFragment"
+        android:label="Bookmark"
+        tools:layout="@layout/fragment_bookmark">
+        <action
+            android:id="@+id/action_nav_bookmark_to_nav_read_quran"
+            app:destination="@id/nav_read_quran" />
+    </fragment>
+
+
+</navigation>
