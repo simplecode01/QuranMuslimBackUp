@@ -3,23 +3,32 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/drawable-v24/ic_prayer_time.xml" value="0.240625" />
         <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/drawable/border_background.xml" value="0.15" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/drawable/border_circle.xml" value="0.16" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/drawable/border_edittext.xml" value="0.240625" />
         <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/drawable/divider.xml" value="0.225" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/drawable/ic_baseline_settings.xml" value="0.240625" />
         <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/activity_dashboard.xml" value="0.22447916666666667" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/activity_main.xml" value="0.11" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/activity_splash_screen.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/activity_main.xml" value="0.12" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/activity_splash_screen.xml" value="0.2" />
         <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/app_bar_main.xml" value="0.10916919959473151" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/botoomsheet_size_font.xml" value="0.25" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/bottom_sheet_city.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/bottom_sheet_dialog.xml" value="0.25" />
         <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/bottom_sheet_listening.xml" value="0.22447916666666667" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/bottom_sheet_qori.xml" value="0.15416666666666667" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/bottom_sheet_qori.xml" value="0.25" />
         <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/content_main.xml" value="0.22" />
         <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/footnotes_bottomsheet.xml" value="0.22447916666666667" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/fragment_about_us.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/fragment_about_us.xml" value="0.2" />
         <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/fragment_bookmark.xml" value="0.33" />
         <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/fragment_contact.xml" value="0.22447916666666667" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/fragment_quran.xml" value="0.2" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/fragment_feedback.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/fragment_jam_sholat.xml" value="0.25" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/fragment_quran.xml" value="0.22" />
         <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/fragment_rating.xml" value="0.22447916666666667" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/fragment_read_quran.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/fragment_read_quran.xml" value="0.2" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/fragment_read_quran_rules.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/fragment_search_quran.xml" value="0.22" />
         <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/fragment_settings.xml" value="0.22" />
         <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/fragment_tab_bookmark.xml" value="0.22447916666666667" />
@@ -28,13 +37,20 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/fragment_tab_surah.xml" value="0.15" />
         <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/item_ayah.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/item_bookmark.xml" value="0.25" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/item_city.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/item_page.xml" value="0.22" />
         <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/item_surah.xml" value="0.25" />
         <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/layout_dashboard.xml" value="0.22" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/nav_header_main.xml" value="0.22447916666666667" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/menu/activity_main_drawer.xml" value="0.25" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/layout/nav_header_main.xml" value="0.67" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/menu/activity_main_drawer.xml" value="0.22" />
         <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/menu/main.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/menu/menu_main.xml" value="0.1841880341880342" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/menu/menu_play.xml" value="0.1841880341880342" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/menu/navigation.xml" value="0.18" />
         <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/menu/search.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/menu/toolbar_menu_class.xml" value="0.15260416666666668" />
         <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.12604166666666666" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/QuranMuslim/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.240625" />
       </map>
     </option>
   </component>

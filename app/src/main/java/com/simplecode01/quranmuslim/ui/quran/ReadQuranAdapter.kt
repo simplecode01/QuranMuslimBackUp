@@ -1,5 +1,6 @@
 package com.simplecode01.quranmuslim.ui.quran
 
+import android.content.Context
 import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.TextPaint
@@ -15,8 +16,10 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.color.MaterialColors
 import com.simplecode01.quranmuslim.R
 import com.simplecode01.quranmuslim.databinding.ItemAyahBinding
+import com.simplecode01.quranmuslim.font.QuranArabicUtils
 import com.simplecode01.quranmuslim.model.Quran
 import com.simplecode01.quranmuslim.save.SaveSharedPreferences
+import java.lang.Exception
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
@@ -41,9 +44,6 @@ class ReadQuranAdapter(val listQuran: List<Quran>, val totalAyahList: List<Int>)
         val lastIndex = listQuran.lastIndex == position
 
         when(SaveSharedPreferences(context).ganti_font){
-            10 ->{
-                holder.binding.textAyah.textSize = 10F
-            }
             20 ->{
                 holder.binding.textAyah.textSize = 20F
             }
@@ -52,6 +52,9 @@ class ReadQuranAdapter(val listQuran: List<Quran>, val totalAyahList: List<Int>)
             }
             40 ->{
                 holder.binding.textAyah.textSize = 40F
+            }
+            50 ->{
+                holder.binding.textAyah.textSize = 50F
             }
         }
 
@@ -78,6 +81,7 @@ class ReadQuranAdapter(val listQuran: List<Quran>, val totalAyahList: List<Int>)
             moreCLickListener?.invoke(quran, totalAyah, position)
         }
 
+
         nextJuzNumber = nextData.juzNumber?: 0
         nextPageNumber = nextData.pageNumber?: 0
     }
@@ -93,9 +97,19 @@ class ReadQuranAdapter(val listQuran: List<Quran>, val totalAyahList: List<Int>)
         val indexSurahAwalNumber: Int = 0
 
         fun bindView(quran: Quran, position: Int) {
+
+            val context = binding.root.context
+            val reverse = reverseAyahfromNumber(quran.textQuran!!)
+
             binding.textSurahName.text =  "Qs. ${quran.surahName}"
             binding.textSurahNameAr.text = quran.surahNameArabic
-            binding.textAyah.text = reverseAyahfromNumber(quran.textQuran!!)
+
+            try {
+                binding.textAyah.text = QuranArabicUtils.getTajweed(context, reverse)
+            }catch (e: Exception){
+                binding.textAyah.text = reverse
+            }
+
             binding.textJuzOrPageNumber.text = "• Juz ${quran.juzNumber} • Hal ${quran.pageNumber} •"
             binding.textAyahNumber.text = quran.ayahNumber.toString()
             binding.textTranslation.text = quran.translation

@@ -17,6 +17,10 @@
             android:icon="@drawable/ic_baseline_info"
             android:title="@string/menu_about_us" />
         <item
+            android:id="@+id/nav_feedback"
+            android:icon="@drawable/ic_baseline_message"
+            android:title="@string/feedback" />
+        <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/ic_baseline_settings"
             android:title="@string/settings"/>
@@ -24,6 +28,14 @@
             android:id="@+id/nav_bookmark"
             android:icon="@drawable/ic_baseline_bookmark"
             android:title="@string/bookmarks"/>
+        <item
+            android:id="@+id/nav_read_rules"
+            android:icon="@drawable/ic_baseline_menu_book"
+            android:title="@string/read_rules"/>
+        <item
+            android:id="@+id/nav_jam_sholat"
+            android:icon="@drawable/ic_baseline_clock"
+            android:title="@string/jam_Sholat"/>
     </group>
 
 </menu>

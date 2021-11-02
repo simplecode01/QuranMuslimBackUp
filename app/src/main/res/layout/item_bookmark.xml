@@ -64,8 +64,9 @@
 
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            app:tint="@color/red"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:src="@drawable/ic_baseline_delete"
             android:layout_gravity="center_vertical"
             android:id="@+id/delete_bookmark"/>

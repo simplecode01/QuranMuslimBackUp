@@ -42,12 +42,12 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         }
 
         super.onCreate(savedInstanceState)
-//        setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_main)
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
@@ -57,7 +57,9 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-//        contohManggilDatabase()
+
+
+
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             var showToolbar: Boolean
             when(destination.id){//ketika tujuan fragmentnya main maka toolbar di hide
@@ -69,8 +71,10 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             }
             binding.toolbar.isVisible = showToolbar
         }
-    }
 
+
+    }
+    //        contohManggilDatabase()
     private fun contohManggilDatabase(){
         val database = QuranDatabase.getInstance(this)
         val quran = database.quranDao().getQuran()

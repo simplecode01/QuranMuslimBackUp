@@ -27,7 +27,7 @@ interface QuranDao {
     @Query("SELECT id, sora,aya_no  ,sora_latin_read, sora_name_en, sora_latin ,sora_asal ,sora_name_ar, page,aya_text, aya_text_emlaey, jozz ,translation , footnotes FROM quran WHERE jozz = :juzNumber")
     fun getJuzByNumber(juzNumber: Int): Flow<List<Quran>>
 
-    @Query("SELECT id, sora,aya_no ,sora_latin_read, sora_name_en, sora_name_ar, page,aya_text, aya_text_emlaey, jozz ,translation , footnotes FROM quran WHERE page = :pageNumber")
+    @Query("SELECT id, sora,aya_no  ,sora_latin_read, sora_name_en, sora_latin ,sora_asal ,sora_name_ar, page,aya_text, aya_text_emlaey, jozz ,translation , footnotes FROM quran WHERE page = :pageNumber")
     fun getPageByNumber(pageNumber: Int): Flow<List<Quran>>
 
     @Insert

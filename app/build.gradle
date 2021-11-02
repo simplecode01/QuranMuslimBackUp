@@ -36,8 +36,30 @@ android {
 }
 
 dependencies {
+
+    //Implementation locations
+    implementation 'com.github.mumayank:AirLocation:2.5.2'
+
+    //Implementation Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.google.code.gson:gson:2.8.8'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    //Implementation Room
+    def room_version = "2.3.0"
+    implementation("androidx.room:room-runtime:$room_version")
+    kapt("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    def nav_version = "2.3.5"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    implementation 'com.github.andrefrsousa:SuperBottomSheet:2.0.0'
     implementation "io.github.l4digital:fastscroll:2.0.1"
 
+    //Implementation StartSky
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.github.EspoirX:StarrySky:v2.6.4'
 
@@ -50,11 +72,6 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
-
-    def room_version = "2.3.0"
-    implementation("androidx.room:room-runtime:$room_version")
-    kapt("androidx.room:room-compiler:$room_version")
-    implementation("androidx.room:room-ktx:$room_version")
 
     implementation 'com.github.kirich1409:viewbindingpropertydelegate:1.5.0-beta01'
 

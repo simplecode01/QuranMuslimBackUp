@@ -38,7 +38,7 @@
                             android:layout_width="0dp"
                             android:layout_weight="0.2"
                             android:layout_height="50dp"
-                            android:src="@drawable/user"/>
+                            android:src="@drawable/logo"/>
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_weight="0.8"
@@ -63,6 +63,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <ImageView
+                            app:tint="?colorPrimary"
                             android:padding="3dp"
                             android:layout_gravity="center"
                             android:layout_width="0dp"
@@ -93,6 +94,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <ImageView
+                            app:tint="?colorPrimary"
                             android:padding="3dp"
                             android:layout_width="0dp"
                             android:layout_weight="0.2"
@@ -114,6 +116,7 @@
                         android:orientation="horizontal"
                         android:layout_marginTop="10dp">
                         <ImageView
+                            app:tint="?colorPrimary"
                             android:padding="3dp"
                             android:layout_width="0dp"
                             android:layout_weight="0.2"
@@ -153,6 +156,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <ImageView
+                            app:tint="?colorPrimary"
                             android:padding="3dp"
                             android:layout_gravity="center"
                             android:layout_width="0dp"
@@ -175,27 +179,6 @@
                                 android:layout_height="wrap_content"
                                 android:text="Region"/>
                         </LinearLayout>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_marginTop="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <ImageView
-                            android:padding="3dp"
-                            android:layout_width="0dp"
-                            android:layout_weight="0.2"
-                            android:layout_height="40dp"
-                            android:src="@drawable/ic_download"
-                            app:tint="?colorControlNormal" />
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_weight="0.8"
-                            android:layout_height="wrap_content"
-                            android:text="Download From Cloud"
-                            android:textColor="#000"
-                            android:textSize="8pt"
-                            android:layout_gravity="center"/>
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -225,7 +208,7 @@
 
                         <ImageView
                             android:padding="3dp"
-                            app:tint="?colorControlNormal"
+                            app:tint="?colorPrimary"
                             android:layout_width="0dp"
                             android:layout_height="40dp"
                             android:layout_gravity="center"
@@ -257,8 +240,8 @@
                         android:orientation="horizontal">
 
                         <ImageView
+                            app:tint="?colorPrimary"
                             android:padding="3dp"
-                            app:tint="?colorControlNormal"
                             android:layout_width="0dp"
                             android:layout_height="40dp"
                             android:layout_gravity="center"
@@ -282,6 +265,40 @@
                                 android:text="@string/tab_instagram"/>
                         </LinearLayout>
                     </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:padding="3dp"
+                            app:tint="?colorPrimary"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.2"
+                            android:src="@drawable/ic_github" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="0.8"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Github"
+                                android:textSize="8pt"
+                                android:textColor="#000"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/tab_github"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 

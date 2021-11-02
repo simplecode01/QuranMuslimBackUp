@@ -5,13 +5,53 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_gravity="center_vertical"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+            <TextView
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Menu"
+                android:gravity="center_vertical"/>
+        </LinearLayout>
+
+        <ImageView
+            app:tint="?colorPrimary"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:id="@+id/close_bottom"
+            android:src="@drawable/ic_baseline_close"/>
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/divider"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:id="@+id/copyAyah"
         android:background="?android:attr/selectableItemBackground"
-        android:padding="8dp">
+        android:padding="5dp">
+
+
 
         <ImageView
             android:layout_width="40dp"
@@ -29,6 +69,11 @@
             android:layout_gravity="center_vertical"
             android:padding="8dp"/>
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/divider"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -55,6 +100,11 @@
 
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/divider"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -80,6 +130,10 @@
             android:padding="8dp"/>
 
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/divider"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -104,6 +158,10 @@
             android:layout_gravity="center_vertical"
             android:padding="8dp"/>
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/divider"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -116,7 +174,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_baseline_bookmark"
+            android:src="@drawable/ic_save"
             android:padding="6dp"
             android:layout_marginEnd="8dp"
             app:tint="?colorPrimary"/>
@@ -129,6 +187,11 @@
             android:padding="8dp"/>
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/divider"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -140,7 +203,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_baseline_bookmarks"
+            android:src="@drawable/ic_bookmark"
             android:padding="6dp"
             android:layout_marginEnd="8dp"
             app:tint="?colorPrimary"/>
@@ -152,4 +215,39 @@
             android:layout_gravity="center_vertical"
             android:padding="8dp"/>
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/divider"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/reportError"
+        android:padding="8dp">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_baseline_error"
+            android:padding="6dp"
+            android:layout_marginEnd="8dp"
+            app:tint="?colorPrimary"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Report Error"
+            android:layout_gravity="center_vertical"
+            android:padding="8dp"/>
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/divider"/>
 </LinearLayout>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
@@ -26,13 +27,18 @@
                 android:background="?attr/colorPrimary"
                 app:popupTheme="@style/Theme.QuranIndonesia.PopupOverlay" />
 
+
+
         </com.google.android.material.appbar.AppBarLayout>
+
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             tools:showIn="@layout/app_bar_main">
+
 
             <fragment
                 android:id="@+id/nav_host_fragment_content_main"
@@ -45,7 +51,27 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:navGraph="@navigation/mobile_navigation" />
 
+
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottomAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:visibility="gone"
+            app:hideOnScroll="true"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="16dp"
+                app:menu="@menu/menu_main"/>
+
+        </com.google.android.material.bottomappbar.BottomAppBar>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
@@ -57,5 +83,7 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer" />
+
+
 
 </androidx.drawerlayout.widget.DrawerLayout>

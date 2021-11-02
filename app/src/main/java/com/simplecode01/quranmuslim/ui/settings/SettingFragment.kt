@@ -3,24 +3,28 @@ package com.simplecode01.quranmuslim.ui.settings
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.Switch
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.simplecode01.quranmuslim.R
 import com.simplecode01.quranmuslim.databinding.FragmentSettingsBinding
 import com.simplecode01.quranmuslim.save.SaveSharedPreferences
-import com.simplecode01.quranmuslim.utils.TinyDB
 
 class SettingFragment: Fragment(R.layout.fragment_settings)  {
+    private lateinit var test: String
     private val binding: FragmentSettingsBinding by viewBinding()
+
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        val tinyDB: TinyDB = TinyDB(requireContext())
+        test = ""
+
 
         when(SaveSharedPreferences(requireContext()).darkMode){
             1 -> {
@@ -43,10 +47,6 @@ class SettingFragment: Fragment(R.layout.fragment_settings)  {
 
         }
         when(SaveSharedPreferences(requireContext()).ganti_font){
-            10 ->{
-                binding.tvBismillah.textSize = 10F
-                binding.textSize.text = "10"
-            }
             20 ->{
                 binding.tvBismillah.textSize = 20F
                 binding.textSize.text = "20"
@@ -59,12 +59,16 @@ class SettingFragment: Fragment(R.layout.fragment_settings)  {
                 binding.tvBismillah.textSize = 40F
                 binding.textSize.text = "40"
             }
+            50 ->{
+                binding.tvBismillah.textSize = 50F
+                binding.textSize.text = "50"
+            }
         }
 
         when(SaveSharedPreferences(requireContext()).ganti_qori){
             0 ->{
                 Log.d("CEKQORIBERUBAH", SaveSharedPreferences(requireContext()).ganti_qori.toString())
-                binding.textQori.text = "Syeikh Abdurrahman As-Sudais"
+                binding.textQori.text = "Abdurrahman As-Sudais"
             }
             1 ->{
                 Log.d("CEKQORIBERUBAH", SaveSharedPreferences(requireContext()).ganti_qori.toString())
@@ -72,87 +76,124 @@ class SettingFragment: Fragment(R.layout.fragment_settings)  {
             }
             2 ->{
                 Log.d("CEKQORIBERUBAH", SaveSharedPreferences(requireContext()).ganti_qori.toString())
-                binding.textQori.text = "Sheikh Abu Bakr Al Shatri"
+                binding.textQori.text = "Abu Bakr Al Shatri"
             }
             3 ->{
-                binding.textQori.text = "Ahmad bin Ali Al-Ajmi"
+                Log.d("CEKQORIBERUBAH", SaveSharedPreferences(requireContext()).ganti_qori.toString())
+                binding.textQori.text = "bin Ali Al-Ajmi"
             }
             4 ->{
-                binding.textQori.text = "Shaykh Mishari Alafasy"
+                Log.d("CEKQORIBERUBAH", SaveSharedPreferences(requireContext()).ganti_qori.toString())
+                binding.textQori.text = "Mishari Alafasy"
+            }
+            5 ->{
+                Log.d("CEKQORIBERUBAH", SaveSharedPreferences(requireContext()).ganti_qori.toString())
+                binding.textQori.text = "Ali Jaber"
             }
         }
 
         binding.layoutText.setOnClickListener {
-            val items = arrayOf("10","20" ,"30","40")
-            val builder = AlertDialog.Builder(requireContext())
-            with(builder) {
-                setTitle("Text Size")
-                setItems(items) { dialog, which ->
-                    Toast.makeText(requireContext(), "Size Changes to : " + items[which], Toast.LENGTH_SHORT).show()
-                    when(items[which]){
-                        "10" ->{
-                            val fontSize: Float = 10F
-                            SaveSharedPreferences(requireContext()).ganti_font = 10
-                            binding.tvBismillah.textSize = fontSize
-                            binding.textSize.text = "10"
-                        }
-                        "20" ->{
-                            val fontSize: Float = 20F
-                            binding.tvBismillah.textSize = fontSize
-                            SaveSharedPreferences(requireContext()).ganti_font = 20
-                            binding.textSize.text = "20"
-                        }
-                        "30" ->{
-                            val fontSize: Float = 30F
-                            binding.tvBismillah.textSize = fontSize
-                            SaveSharedPreferences(requireContext()).ganti_font = 30
-                            binding.textSize.text = "30"
-                        }
-                        "40" ->{
-                            val fontSize: Float = 40F
-                            binding.tvBismillah.textSize = fontSize
-                            SaveSharedPreferences(requireContext()).ganti_font = 40
-                            binding.textSize.text = "40"
-                        }
-                    }
-                }
-                show()
+            val view = layoutInflater.inflate(R.layout.botoomsheet_size_font, null)
+            val dialog = BottomSheetDialog(requireContext())
+            dialog.setCancelable(true)
+            dialog.setContentView(view)
+
+            val btnSize1 = view.findViewById<LinearLayout>(R.id.size1)
+            val btnSize2 = view.findViewById<LinearLayout>(R.id.size2)
+            val btnSize3 = view.findViewById<LinearLayout>(R.id.size3)
+            val btnSize4 = view.findViewById<LinearLayout>(R.id.size4)
+
+            btnSize1.setOnClickListener {
+                val fontSize: Float = 20F
+                SaveSharedPreferences(requireContext()).ganti_font = 20
+                binding.tvBismillah.textSize = fontSize
+                binding.textSize.text = "20"
+                Toast.makeText(requireContext(), "Font size set to 20", Toast.LENGTH_SHORT).show();
+                dialog.dismiss()
             }
+            btnSize2.setOnClickListener {
+                val fontSize: Float = 30F
+                binding.tvBismillah.textSize = fontSize
+                SaveSharedPreferences(requireContext()).ganti_font = 30
+                binding.textSize.text = "30"
+                Toast.makeText(requireContext(), "Font size set to 30", Toast.LENGTH_SHORT).show();
+                dialog.dismiss()
+            }
+            btnSize3.setOnClickListener {
+                val fontSize: Float = 40F
+                binding.tvBismillah.textSize = fontSize
+                SaveSharedPreferences(requireContext()).ganti_font = 40
+                binding.textSize.text = "40"
+                Toast.makeText(requireContext(), "Font size set to 40", Toast.LENGTH_SHORT).show();
+                dialog.dismiss()
+            }
+            btnSize4.setOnClickListener {
+                val fontSize: Float = 50F
+                binding.tvBismillah.textSize = fontSize
+                SaveSharedPreferences(requireContext()).ganti_font = 50
+                binding.textSize.text = "50"
+                Toast.makeText(requireContext(), "Font size set to 50", Toast.LENGTH_SHORT).show();
+                dialog.dismiss()
+            }
+
+            dialog.show()
         }
 
         binding.layoutQori.setOnClickListener {
-//            val items = arrayOf("Syeikh Abdurrahman As-Sudais","Abdullah Ibn Ali Basfar" ,"Sheikh Abu Bakr Al Shatri","Ahmad bin Ali Al-Ajmi", "Shaykh Mishari Alafasy")
-//            val builder = AlertDialog.Builder(requireContext())
 
-//            with(builder) {
-//                setTitle("Change Qori")
-//                setItems(items) { dialog, which ->
-//                    Toast.makeText(requireContext(), "Qori Changes to : " + items[which], Toast.LENGTH_SHORT).show()
-//                    when(items[which]){
-//                        "Syeikh Abdurrahman As-Sudais" ->{
-//                            SaveSharedPreferences(requireContext()).ganti_qori = 0
-//                            binding.textQori.text = "Syeikh Abdurrahman As-Sudais"
-//                        }
-//                        "Abdullah Ibn Ali Basfar" ->{
-//                            SaveSharedPreferences(requireContext()).ganti_qori = 1
-//                            binding.textQori.text = "Abdullah Ibn Ali Basfar"
-//                        }
-//                        "Sheikh Abu Bakr Al Shatri" ->{
-//                            SaveSharedPreferences(requireContext()).ganti_qori = 2
-//                            binding.textQori.text = "Sheikh Abu Bakr Al Shatri"
-//                        }
-//                        "Ahmad bin Ali Al-Ajmi" ->{
-//                            SaveSharedPreferences(requireContext()).ganti_qori = 3
-//                            binding.textQori.text = "Ahmad bin Ali Al-Ajmi"
-//                        }
-//                        "Shaykh Mishari Alafasy" ->{
-//                            SaveSharedPreferences(requireContext()).ganti_qori = 4
-//                            binding.textQori.text = "Shaykh Mishari Alafasy"
-//                        }
-//                    }
-//                }
-//                show()
-//            }
+            val view = layoutInflater.inflate(R.layout.bottom_sheet_qori, null)
+            val dialog = BottomSheetDialog(requireContext())
+            dialog.setCancelable(true)
+            dialog.setContentView(view)
+
+            val btnImam1 = view.findViewById<LinearLayout>(R.id.imam1)
+            val btnImam2 = view.findViewById<LinearLayout>(R.id.city2)
+            val btnImam3 = view.findViewById<LinearLayout>(R.id.imam3)
+            val btnImam4 = view.findViewById<LinearLayout>(R.id.imam4)
+            val btnImam5 = view.findViewById<LinearLayout>(R.id.imam5)
+            val btnImam6 = view.findViewById<LinearLayout>(R.id.imam6)
+
+            btnImam1.setOnClickListener {
+                SaveSharedPreferences(requireContext()).ganti_qori = 0
+                binding.textQori.text = "Abdurrahman As-Sudais"
+                dialog.dismiss()
+                Toast.makeText(requireContext(), "Quran reader is set to Abdurrahman As-Sudais", Toast.LENGTH_SHORT).show();
+            }
+            btnImam2.setOnClickListener {
+                SaveSharedPreferences(requireContext()).ganti_qori = 1
+                binding.textQori.text = "Abdullah Ibn Ali Basfar"
+                dialog.dismiss()
+                Toast.makeText(requireContext(), "Quran reader is set to Abdullah Ibn Ali Basfar", Toast.LENGTH_SHORT).show();
+            }
+            btnImam3.setOnClickListener {
+                SaveSharedPreferences(requireContext()).ganti_qori = 2
+                binding.textQori.text = "Abu Bakr Al Shatri"
+                dialog.dismiss()
+                Toast.makeText(requireContext(), "Quran reader is set to Abu Bakr Al Shatri", Toast.LENGTH_SHORT).show();
+            }
+            btnImam4.setOnClickListener {
+                SaveSharedPreferences(requireContext()).ganti_qori = 3
+                binding.textQori.text = "Ahmad bin Ali Al-Ajmi"
+                dialog.dismiss()
+                Toast.makeText(requireContext(), "Quran reader is set to Ahmad bin Ali Al-Ajmi", Toast.LENGTH_SHORT).show();
+            }
+            btnImam5.setOnClickListener {
+                SaveSharedPreferences(requireContext()).ganti_qori = 4
+                binding.textQori.text = "Mishari Alafasy"
+                dialog.dismiss()
+                Toast.makeText(requireContext(), "Quran reader is set to Mishari Alafasy", Toast.LENGTH_SHORT).show();
+            }
+            btnImam6.setOnClickListener {
+                SaveSharedPreferences(requireContext()).ganti_qori = 5
+                binding.textQori.text = "Ali Jaber"
+                dialog.dismiss()
+                Toast.makeText(requireContext(), "Quran reader is set to Ali Jabe", Toast.LENGTH_SHORT).show();
+            }
+
+
+            dialog.show()
+
         }
+
     }
 }
