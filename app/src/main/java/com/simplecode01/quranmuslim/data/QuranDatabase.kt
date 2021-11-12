@@ -22,6 +22,7 @@ abstract class QuranDatabase : RoomDatabase(){
                     .createFromInputStream {
                         context.resources.openRawResource(R.raw.quran)
                     }
+//                    .fallbackToDestructiveMigration()
                     .build()
             }
     }

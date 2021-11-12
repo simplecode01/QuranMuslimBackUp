@@ -6,90 +6,87 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
     tools:context=".ui.home.HomeFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/lastReadLayout"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/border_background"
-            android:padding="15dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <LinearLayout
-                android:layout_gravity="center"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
-                    android:textStyle="bold"
-                    android:textSize="13pt"
-                    android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:id="@+id/lastReadLayout"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/border_background"
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Last Read"
-                    android:textColor="#FFFFFF"/>
-                    <TextView
-                        android:textColor="#FFFFFF"
-                        android:textSize="10pt"
-                        android:id="@+id/SurahName"
-                        android:layout_width="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_gravity="center"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="Al - Fatihah"/>
-                    <TextView
-                        android:textColor="#FFFFFF"
-                        android:textSize="10pt"
-                        android:id="@+id/ayahNumber"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="7"/>
+                        android:orientation="vertical">
+                        <TextView
+                            android:textStyle="bold"
+                            android:textSize="12pt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Last Read"
+                            android:textColor="#FFFFFF"/>
+                        <TextView
+                            android:textColor="#FFFFFF"
+                            android:textSize="8pt"
+                            android:id="@+id/SurahName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="-- : --"/>
+                        <TextView
+                            android:textColor="#FFFFFF"
+                            android:textSize="10pt"
+                            android:id="@+id/ayahNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="-:-"/>
+                    </LinearLayout>
+                    <ImageView
+                        app:tint="#FFFFFF"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/ic_baseline_clock"/>
+                </LinearLayout>
+
+                <com.google.android.material.tabs.TabLayout
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/tab_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </com.google.android.material.tabs.TabLayout>
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/view_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
             </LinearLayout>
-            <ImageView
-                app:tint="#FFFFFF"
-                android:layout_marginLeft="10dp"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/ic_clock"/>
+
         </LinearLayout>
 
     </LinearLayout>
-
-
-    <com.google.android.material.tabs.TabLayout
-        android:layout_marginTop="10dp"
-        android:id="@+id/tab_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-<!--        <com.google.android.material.tabs.TabItem-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="@string/tab_surah"/>-->
-
-<!--        <com.google.android.material.tabs.TabItem-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="@string/tab_juz"/>-->
-
-<!--        <com.google.android.material.tabs.TabItem-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="@string/tab_bookmark"/>-->
-
-    </com.google.android.material.tabs.TabLayout>
-
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
 
 
 </LinearLayout>

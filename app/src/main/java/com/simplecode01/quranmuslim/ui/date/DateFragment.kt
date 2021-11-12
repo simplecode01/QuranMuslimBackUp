@@ -19,25 +19,29 @@ import android.widget.Toast
 import com.simplecode01.quranmuslim.dataapiretro.apiPrayer.PrayerAPI
 import kotlinx.coroutines.launch
 
+
 class DateFragment: Fragment(R.layout.fragment_jam_sholat) {
 
     private lateinit var airlocation: AirLocation
 
     private val binding: FragmentJamSholatBinding by viewBinding()
 
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
         val api = HijrihDateAPI.create()
         val sdf = SimpleDateFormat("dd-M-yyyy")
         val currentDate = sdf.format(Date())
-        val tme = SimpleDateFormat("HH:mm")
-        val currentTime = tme.format(Date())
+
 
         lifecycleScope.launchWhenCreated {
             val response = api.getHijrihDate("${currentDate}", 1)
             val hijrihDates = response.data.hijri
             val gregoDates = response.data.gregorian
+
 
             val dateFormat = gregoDates.weekday.en
 
@@ -60,7 +64,7 @@ class DateFragment: Fragment(R.layout.fragment_jam_sholat) {
             }else if(dateFormat == "Sunday"){
                 binding.tvHari.text = "Minggu, "
             }
-            binding.tvTanggalGre.text = "${gregoDates.day} ${gregoDates.month.en} ${gregoDates.year} ${currentTime}"
+            binding.tvTanggalGre.text = "${gregoDates.day} ${gregoDates.month.en} ${gregoDates.year}"
         }
 
         airlocation = AirLocation(requireActivity(), object : AirLocation.Callback {
@@ -78,26 +82,40 @@ class DateFragment: Fragment(R.layout.fragment_jam_sholat) {
                     val response = api.getPrayerTime(locations[0].latitude, locations[0].longitude)
                     val prayerTime = response.results.datetime[0].times
 
-                    val tme = SimpleDateFormat("HH:mm")
-                    val currentTime = tme.format(Date())
-
                     textFajr.text = prayerTime.fajr
                     textDzuhur.text = prayerTime.dhuhr
                     textAshr.text = prayerTime.asr
                     textMgrib.text = prayerTime.maghrib
                     textIsy.text = prayerTime.isha
 
-                    if(prayerTime.fajr == currentTime){
+                    val tme = SimpleDateFormat("HH:mm")
+                    val currentTime = tme.format(Date())
 
-                    }else if(prayerTime.dhuhr == currentTime){
+//                    if("21:12" == currentTime){
+//
+//                    }else if(prayerTime.dhuhr == currentTime){
+//
+//                    }else if(prayerTime.asr == currentTime){
+//
+//                    }else if(prayerTime.maghrib == currentTime){
+//
+//                    }else if(prayerTime.isha == currentTime){
+//
+//                    }
 
-                    }else if(prayerTime.asr == currentTime){
+//                    if (currentTime > prayerTime.fajr ) {
+//                        binding.nameSholat.text = "Dzuhur"
+//                    }else if(prayerTime.dhuhr > currentTime){
+//                        binding.nameSholat.text = "Ashar"
+//                    }else if(prayerTime.asr > currentTime){
+//                        binding.nameSholat.text = "Maghrib"
+//                    }else if(prayerTime.maghrib > currentTime){
+//                        binding.nameSholat.text = "Isya"
+//                    }else if(prayerTime.isha > currentTime){
+//                        binding.nameSholat.text = "Subuh"
+//                    }
 
-                    }else if(prayerTime.maghrib == currentTime){
 
-                    }else if(prayerTime.isha == currentTime){
-
-                    }
                 }
             }
             override fun onFailure(locationFailedEnum: AirLocation.LocationFailedEnum) {
@@ -106,6 +124,8 @@ class DateFragment: Fragment(R.layout.fragment_jam_sholat) {
         },true)
         airlocation.start()
     }
+
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         airlocation.onActivityResult(requestCode, resultCode, data)
@@ -118,4 +138,5 @@ class DateFragment: Fragment(R.layout.fragment_jam_sholat) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         airlocation.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
+
 }

@@ -2,6 +2,8 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
 
 android {
@@ -36,6 +38,8 @@ android {
 }
 
 dependencies {
+    //Implementation notifications
+    implementation 'com.github.jakebonk:NotifyMe:1.0.1'
 
     //Implementation locations
     implementation 'com.github.mumayank:AirLocation:2.5.2'
@@ -44,6 +48,10 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.google.code.gson:gson:2.8.8'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    implementation 'com.google.firebase:firebase-auth:19.2.0'
+    implementation 'com.google.firebase:firebase-crashlytics:18.2.4'
+    implementation 'com.google.firebase:firebase-messaging:23.0.0'
 
     //Implementation Room
     def room_version = "2.3.0"

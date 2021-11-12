@@ -30,7 +30,7 @@
                     android:layout_height="50dp"
                     android:src="@drawable/ic_baseline_date"/>
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
@@ -46,7 +46,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="7pt"
-                            android:text="Al Ahad, "/>
+                            android:text="-- : --"/>
 
                         <TextView
                             android:id="@+id/tv_date"
@@ -55,11 +55,17 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="7pt"
-                            android:text="10 - Rabiul Awal - 1443"/>
+                            android:text="-- : --"/>
                     </LinearLayout>
 
+                    <View
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@drawable/divider"/>
+
                     <LinearLayout
-                        android:layout_marginTop="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
@@ -70,7 +76,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="7pt"
-                            android:text="Jumat, "/>
+                            android:text="-- : --"/>
                         <TextView
                             android:id="@+id/tv_tanggalGre"
                             android:textSize="7pt"
@@ -78,7 +84,7 @@
                             android:textColor="@color/black"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="10 Agustus 2021"/>
+                            android:text="-- : --"/>
                     </LinearLayout>
 
 
@@ -94,9 +100,11 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
         android:layout_margin="16dp">
 
         <LinearLayout
+            android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -104,10 +112,32 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Jadwal Sholat Hari Ini"
+                android:text="Waktu Sholat"
                 android:gravity="center"
                 android:textSize="10pt"
                 android:textColor="#000"/>
+
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:textAppearance="?textAppearanceHeadline6"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sholat Berikutnya : "
+                    android:textSize="16sp"/>
+                <TextView
+                    android:textColor="@color/black"
+                    android:id="@+id/name_sholat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-- : --"/>
+            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -139,7 +169,7 @@
                         <TextView
                             android:layout_width="75dp"
                             android:layout_height="wrap_content"
-                            android:text="Shubuh:"
+                            android:text="Subuh:"
                             android:textAppearance="?textAppearanceHeadline6"
                             android:textColor="@color/black"
                             android:textSize="16sp" />
@@ -149,7 +179,7 @@
                             android:layout_marginLeft="16dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="04:30"
+                            android:text="-- : --"
                             android:textColor="@color/black"
                             android:textSize="16sp" />
 
@@ -191,7 +221,7 @@
                     <TextView
                         android:layout_width="75dp"
                         android:layout_height="wrap_content"
-                        android:text="Zhuhur:"
+                        android:text="Dzuhur:"
                         android:textAppearance="?textAppearanceHeadline6"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
@@ -201,7 +231,7 @@
                         android:layout_marginLeft="16dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="04:30"
+                        android:text="-- : --"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
@@ -251,7 +281,7 @@
                         android:layout_marginLeft="16dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="04:30"
+                        android:text="-- : --"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
@@ -291,7 +321,7 @@
                     <TextView
                         android:layout_width="75dp"
                         android:layout_height="wrap_content"
-                        android:text="Magrib:"
+                        android:text="Maghrib:"
                         android:textAppearance="?textAppearanceHeadline6"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
@@ -301,7 +331,7 @@
                         android:layout_marginLeft="16dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="04:30"
+                        android:text="-- : --"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
@@ -352,7 +382,7 @@
                         android:layout_marginLeft="16dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="04:30"
+                        android:text="-- : --"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 

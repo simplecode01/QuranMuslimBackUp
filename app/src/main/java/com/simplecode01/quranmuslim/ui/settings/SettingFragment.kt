@@ -19,7 +19,6 @@ class SettingFragment: Fragment(R.layout.fragment_settings)  {
     private val binding: FragmentSettingsBinding by viewBinding()
 
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -34,6 +33,46 @@ class SettingFragment: Fragment(R.layout.fragment_settings)  {
                 binding.darkLighModeSwitch.isChecked = false
             }
         }
+
+        when(SaveSharedPreferences(requireContext()).translation){
+            1 ->{
+                binding.translationSwitch.isChecked = true
+            }
+            0 ->{
+                binding.translationSwitch.isChecked = false
+            }
+        }
+
+        when(SaveSharedPreferences(requireContext()).latin){
+            1 ->{
+                binding.latinSwitch.isChecked = true
+            }
+            0 ->{
+                binding.latinSwitch.isChecked = false
+            }
+        }
+
+
+        binding.translationSwitch.setOnClickListener {
+            if(binding.translationSwitch.isChecked){
+                SaveSharedPreferences(requireContext()).translation = 1
+                Toast.makeText(requireContext(), "Translation text show", Toast.LENGTH_SHORT).show();
+            }else{
+                SaveSharedPreferences(requireContext()).translation = 0
+                Toast.makeText(requireContext(), "Translation text hide", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        binding.latinSwitch.setOnClickListener {
+            if(binding.latinSwitch.isChecked){
+                SaveSharedPreferences(requireContext()).latin = 1
+                Toast.makeText(requireContext(), "Latin text show", Toast.LENGTH_SHORT).show();
+            }else{
+                SaveSharedPreferences(requireContext()).latin = 0
+                Toast.makeText(requireContext(), "Latin text hide", Toast.LENGTH_SHORT).show()
+            }
+        }
+
 
         binding.darkLighModeSwitch.setOnClickListener{
 

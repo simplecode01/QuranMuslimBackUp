@@ -1,32 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        app:showAsAction="always"
-        android:id="@+id/navigation_satu"
-        android:icon="@drawable/ic_clock"
-        android:title="Jam Sholat" />
 
-    <item
-        app:showAsAction="always"
-        android:id="@+id/navigation_dua"
-        android:icon="@drawable/ic_bookmark"
-        android:title="Bookmark" />
+    <group android:checkableBehavior="single">
+        <item
+            app:showAsAction="always"
+            android:id="@+id/nav_quran"
+            android:icon="@drawable/ic_baseline_menu_book"
+            android:title="@string/menu_quran" />
+        <item
+            app:showAsAction="always"
+            android:id="@+id/nav_bookmark"
+            android:icon="@drawable/ic_baseline_bookmark"
+            android:title="@string/bookmarks"/>
+        <item
+            app:showAsAction="always"
+            android:id="@+id/nav_jam_sholat"
+            android:icon="@drawable/ic_baseline_clock"
+            android:title="@string/jam_Sholat"/>
+        <item
+            app:showAsAction="always"
+            android:id="@+id/nav_user"
+            android:icon="@drawable/ic_baseline_person"
+            android:title="@string/user"/>
+        <item
+            app:showAsAction="always"
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_baseline_settings"
+            android:title="@string/settings"/>
+    </group>
 
-    <item
-        app:showAsAction="always"
-        android:id="@+id/navigation_tiga"
-        android:icon="@drawable/ic_quran_book_"
-        android:title="Quran" />
-
-    <item
-        app:showAsAction="always"
-        android:id="@+id/navigation_empat"
-        android:icon="@android:drawable/ic_menu_search"
-        android:title="Search"/>
-    <item
-        app:showAsAction="always"
-        android:id="@+id/navigation_lima"
-        android:icon="@drawable/ic_baseline_settings"
-        android:title="Settings"/>
 </menu>

@@ -43,6 +43,8 @@ class ReadQuranAdapter(val listQuran: List<Quran>, val totalAyahList: List<Int>)
         val quran = listQuran[position]
         val lastIndex = listQuran.lastIndex == position
 
+
+
         when(SaveSharedPreferences(context).ganti_font){
             20 ->{
                 holder.binding.textAyah.textSize = 20F
@@ -118,8 +120,23 @@ class ReadQuranAdapter(val listQuran: List<Quran>, val totalAyahList: List<Int>)
             binding.textLatinRead.text = quran.surahLatinRead
 
 
+            when(SaveSharedPreferences(context).translation){
+                1 ->{
+                    binding.textTranslation.visibility = View.VISIBLE
+                }
+                0 ->{
+                    binding.textTranslation.visibility = View.GONE
+                }
+            }
+            when(SaveSharedPreferences(context).latin){
+                1 ->{
+                    binding.textLatinRead.visibility = View.VISIBLE
+                }
+                0 ->{
+                    binding.textLatinRead.visibility = View.GONE
+                }
+            }
 
-            
             if(position == indexSurahAwalNumber){
                 binding.containerSurahLayout.visibility = View.VISIBLE
             }else{

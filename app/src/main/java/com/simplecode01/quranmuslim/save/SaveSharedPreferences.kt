@@ -7,9 +7,11 @@ class SaveSharedPreferences(context: Context) {
 
     companion object{
         const val KEY_DARK_STATUS = "darkMode"
-        const val KEY_CHANGE_QORI = "0"
+        const val KEY_CHANGE_QORI = "100"
         const val KEY_TEXT_SIZE = "10pt"
-        const val KEY_CHANGE_CITY = "0"
+        const val KEY_ONBOARD = "0"
+        const val KEY_TRANSLATION = "1"
+        const val KEY_LATIN = "2"
     }
     private val penampung_size = PreferenceManager.getDefaultSharedPreferences(context)
 
@@ -22,6 +24,12 @@ class SaveSharedPreferences(context: Context) {
     var ganti_qori = penampung_size.getInt(KEY_CHANGE_QORI, 0)
         set(value) = penampung_size.edit().putInt(KEY_CHANGE_QORI, value).apply()
 
-    var ganti_city = penampung_size.getInt(KEY_CHANGE_CITY, 0)
-        set(value) = penampung_size.edit().putInt(KEY_CHANGE_CITY, value).apply()
+    var onBoard = penampung_size.getInt(KEY_ONBOARD, 0)
+        set(value) = penampung_size.edit().putInt(KEY_ONBOARD, value).apply()
+
+    var translation = penampung_size.getInt(KEY_TRANSLATION, 1)
+        set(value) = penampung_size.edit().putInt(KEY_TRANSLATION, value).apply()
+
+    var latin = penampung_size.getInt(KEY_LATIN, 1)
+        set(value) = penampung_size.edit().putInt(KEY_LATIN, value).apply()
 }

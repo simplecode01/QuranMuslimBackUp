@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "927536318760",
+    "project_id": "myquranproject-82a97",
+    "storage_bucket": "myquranproject-82a97.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:927536318760:android:f88334af77f5eacac0681d",
+        "android_client_info": {
+          "package_name": "com.simplecode01.quranmuslim"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "927536318760-uov1ilpnl2ks33dm1lchi2k3ldnben65.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.simplecode01.quranmuslim",
+            "certificate_hash": "aff714d43d729c13eda939e2646fe91dcd3de44a"
+          }
+        },
+        {
+          "client_id": "927536318760-kv92kr0pu4odqt9r0jtq57bv24png1s8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAa1OhTyMkfg9dCWJVmgpcKL_iyw1U5Tfc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "927536318760-kv92kr0pu4odqt9r0jtq57bv24png1s8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

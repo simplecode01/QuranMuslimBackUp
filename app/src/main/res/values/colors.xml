@@ -16,10 +16,27 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="colorPrimary">#192648</color>
+    <color name="colorPrimaryDark">#121c3a</color>
+    <color name="lightblue">#999cb3eb</color>
+    <color name="colorAccent">#ffa449</color>
+
+    <!--Custom Color arabic tajwid-->
     <color name="color_qalqala">#E80481</color>
-    <color name="color_iqlab">#F8DF00</color>
+    <color name="color_iqlab">#A66606</color>
     <color name="color_idgham">#ffb955c8</color>
     <color name="color_ikhfa">#48F807</color>
     <color name="color_ghunna">#00BCD4</color>
     <color name="color_idghamwo">#aaa</color>
+
+    <!--Custom Color-->
+    <color name="custom_color_primary">#388E3C</color>
+    <color name="custom_color_secondary">#FF8F00</color>
+    <color name="custom_color_secodary_light">#FFD299</color>
+    <color name="custom_color_background">#FFFFFF</color>
+    <color name="custom_color_text_primary">#060906</color>
+    <color name="custom_color_text_secondary">#464747</color>
+
+   <!--Custom Color Notif alarm-->
+    <color name="basic_color50">#508A48CD</color>
 </resources>

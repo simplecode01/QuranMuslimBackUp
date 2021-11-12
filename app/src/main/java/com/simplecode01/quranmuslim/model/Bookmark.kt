@@ -9,7 +9,7 @@ import java.sql.Timestamp
 data class Bookmark(
     @PrimaryKey(autoGenerate = true)
     var id: Int?,
-    @ColumnInfo(name = "posisition") val posisitionScroll: Int,
+    @ColumnInfo(name = "posisition") val posisitionScrollBookmark: Int,
     @ColumnInfo(name = "sora_name_en") val nameSurah: String,
     @ColumnInfo(name = "sora_no") val surahNumber: Int,
     @ColumnInfo(name = "aya_no") val ayahNumber: Int,

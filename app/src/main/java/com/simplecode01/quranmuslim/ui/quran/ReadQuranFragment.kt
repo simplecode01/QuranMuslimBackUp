@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -54,6 +55,10 @@ class ReadQuranFragment: Fragment(R.layout.fragment_read_quran) {
         val dataPaketJuzNumber = arguments?.getInt(KEY_JUZ_NUMBER)?: 1
         val dataPaketPageNumber = arguments?.getInt(KEY_PAGE_NUMBER)?: 1
         val scrollPosition = arguments?.getInt(KEY_SCROLL_TO_POSITION)?: 0
+        val isFromBookmark = arguments?.getBoolean(KEY_FROM_BOOKMARK)?: false
+        val Bookmark_Posistion = arguments?.getInt(KEY_SCROLL_TO_POSITION_BOOK)?: 0
+        Log.d("CEKBOOKMARK", Bookmark_Posistion.toString())
+
         Log.d("CEKSCROLL", scrollPosition.toString())
 
         viewModel.getTabPosisition().observe(viewLifecycleOwner, { tabPosition ->
@@ -61,24 +66,34 @@ class ReadQuranFragment: Fragment(R.layout.fragment_read_quran) {
                 val database = QuranDatabase.getInstance(requireContext())
                 val quranDao = database.quranDao()
                 var titleToolBar: String = ""
-                when(tabPosition){
-                    TAB_SURAH ->{
-                        quranDao.getSurahByNumber(dataPaketSurahNumber).asLiveData().observe(viewLifecycleOwner, {quranList ->
-                            setQuranAdapter(quranList, totalAyahlist, scrollPosition)
+                when(isFromBookmark){
+                    true ->{
+                        quranDao.getSurahByNumber(dataPaketSurahNumber).asLiveData().observe(viewLifecycleOwner,{quranList ->
+                            setQuranAdapter(quranList, totalAyahlist, Bookmark_Posistion)
+
                         })
-                        titleToolBar = "Qs. $dataSurahName"
                     }
-                    TAB_JUZ ->{
-                        quranDao.getJuzByNumber(dataPaketJuzNumber).asLiveData().observe(viewLifecycleOwner, {quranList ->
-                            setQuranAdapter(quranList, totalAyahlist, scrollPosition)
-                        })
-                        titleToolBar = "Juz $dataPaketJuzNumber"
-                    }
-                    TAB_PAGE ->{
-                        quranDao.getPageByNumber(dataPaketPageNumber).asLiveData().observe(viewLifecycleOwner, {quranList ->
-                            setQuranAdapter(quranList, totalAyahlist, scrollPosition)
-                        })
-                        titleToolBar = "Page $dataPaketPageNumber"
+                    false ->{
+                        when(tabPosition){
+                            TAB_SURAH ->{
+                                quranDao.getSurahByNumber(dataPaketSurahNumber).asLiveData().observe(viewLifecycleOwner, {quranList ->
+                                    setQuranAdapter(quranList, totalAyahlist, scrollPosition)
+                                })
+                                titleToolBar = "Qs. $dataSurahName"
+                            }
+                            TAB_JUZ ->{
+                                quranDao.getJuzByNumber(dataPaketJuzNumber).asLiveData().observe(viewLifecycleOwner, {quranList ->
+                                    setQuranAdapter(quranList, totalAyahlist, scrollPosition)
+                                })
+                                titleToolBar = "Juz $dataPaketJuzNumber"
+                            }
+                            TAB_PAGE ->{
+                                quranDao.getPageByNumber(dataPaketPageNumber).asLiveData().observe(viewLifecycleOwner, {quranList ->
+                                    setQuranAdapter(quranList, totalAyahlist, scrollPosition)
+                                })
+                                titleToolBar = "Page $dataPaketPageNumber"
+                            }
+                        }
                     }
                 }
                 val toolbarActivity = requireActivity().findViewById<Toolbar>(R.id.toolbar)
@@ -95,11 +110,15 @@ class ReadQuranFragment: Fragment(R.layout.fragment_read_quran) {
     private fun setQuranAdapter(quranList: List<Quran>, ayahTotal: List<Int>, scrollPosition: Int) {
         val adapter: ReadQuranAdapter = ReadQuranAdapter(quranList, ayahTotal)
         binding.recyclerview.adapter = adapter
-        if(scrollPosition <= 50){
-            binding.recyclerview.smoothScrollToPosition(scrollPosition)
-        }else{
-            binding.recyclerview.scrollToPosition(scrollPosition)
-        }
+
+        Handler().postDelayed({
+            if(scrollPosition <= 50){
+                binding.recyclerview.smoothScrollToPosition(scrollPosition)
+            }else{
+                binding.recyclerview.scrollToPosition(scrollPosition)
+            }
+        },100)
+
 
 
 
@@ -207,10 +226,8 @@ class ReadQuranFragment: Fragment(R.layout.fragment_read_quran) {
                 audioImam.songId = quran.id.toString()
                 audioImam.songCover = imamCover
 
-
-
-
                 StarrySky.with().playMusicByInfo(audioImam)
+
                 Toast.makeText(requireContext(), "Play Qs. ${quran.surahName}[${quran.surahNumber}]: ${quran.ayahNumber}", Toast.LENGTH_SHORT)
                     .show();
                 dialog.dismiss()
@@ -278,7 +295,6 @@ class ReadQuranFragment: Fragment(R.layout.fragment_read_quran) {
                         }
                         PlaybackStage.SWITCH -> {
                             playBackStage.songInfo?.let {
-                                binding.txtTitle.text = playBackStage.songInfo?.songName
                             }
                         }
                         PlaybackStage.PAUSE->{
@@ -286,7 +302,7 @@ class ReadQuranFragment: Fragment(R.layout.fragment_read_quran) {
                         }
                         PlaybackStage.IDEA -> {
                             playBackStage.songInfo?.let {
-                                Toast.makeText(requireContext(), "${playBackStage.songInfo?.songName}", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(requireContext(), "${playBackStage.songInfo?.songName}", Toast.LENGTH_SHORT).show();
                             }
                         }
                         PlaybackStage.ERROR -> {
@@ -315,7 +331,7 @@ class ReadQuranFragment: Fragment(R.layout.fragment_read_quran) {
             }
 
             btnBookmark.setOnClickListener {
-                val bookmark = Bookmark(id = null, posisitionScroll = position, nameSurah = quran.surahName!!, ayahNumber = quran.ayahNumber!!, surahNumber = quran.surahNumber!!, timestamp = Date().time)
+                val bookmark = Bookmark(id = null, posisitionScrollBookmark = position, nameSurah = quran.surahName!!, ayahNumber = quran.ayahNumber!!, surahNumber = quran.surahNumber!!, timestamp = Date().time)
                 val database = QuranDatabase.getInstance(requireContext())
                 val quranDao = database.quranDao()
                 lifecycleScope.launch {
@@ -352,9 +368,10 @@ class ReadQuranFragment: Fragment(R.layout.fragment_read_quran) {
                 when (model.repeatMode) {
                     RepeatMode.REPEAT_MODE_NONE -> if (model.isLoop) {
                         StarrySky.with().setRepeatMode(RepeatMode.REPEAT_MODE_NONE, false)
-                        Toast.makeText(requireContext(), "Surah Loop", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(requireContext(), "Surah loop stop", Toast.LENGTH_SHORT).show();
                     }else {
                         StarrySky.with().setRepeatMode(RepeatMode.REPEAT_MODE_NONE, true)
+                        Toast.makeText(requireContext(), "Surah Loop", Toast.LENGTH_SHORT).show();
                         menuItem.setIcon(R.drawable.ic_baseline_repeat)
                     }
                     RepeatMode.REPEAT_MODE_ONE -> if (model.isLoop) {
@@ -393,9 +410,8 @@ class ReadQuranFragment: Fragment(R.layout.fragment_read_quran) {
     }
 
     companion object{
-        const val KEY_AYAH_NAME = "ayah_total"
-
-        const val KEY_SCROLL_JUZ = "scroll_"
+        const val KEY_FROM_BOOKMARK = "Hai"
+        const val KEY_SCROLL_TO_POSITION_BOOK = "scroll_position_book"
         const val KEY_SURAH_NAME = "surah_name"
         const val KEY_SURAH_NUMBER = "surah_number"
         const val KEY_SCROLL_TO_POSITION = "scroll_position"
