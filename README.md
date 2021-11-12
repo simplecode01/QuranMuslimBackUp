@@ -1,7 +1,7 @@
 <h1 align="center">QuranMuslim</h1>
 <h3 align="center">Indonesian Muslim Quran application, which can be used offline but some feature require online connection : )</h3>
 <p align="left">
-<a href="https://github.com/simplecode01/QuranMuslimBackUp" target="blank"><img align="center" src="https://github.com/simplecode01/save/blob/main/1.png" alt="simplecode01" height="650" width="400" /></a>
+<a href="https://github.com/simplecode01/QuranMuslimBackUp" target="blank"><img align="center" src="https://github.com/simplecode01/save/blob/main/1.png" alt="simplecode01" height="550" width="300" /></a>
 </p>
 <h3 align="left">feature : </h3>
 
